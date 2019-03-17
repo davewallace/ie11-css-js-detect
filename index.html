@@ -6,9 +6,9 @@
 			body { order: 1; }
 			@supports (display: grid) {
 				body {
-					/*  change a harmless CSS property to something other than
-						the default value. we will later detect this change to
-						determine if we are using IE11 or something more modern */
+					/*  change a harmless CSS property back to the default value.
+						we will later detect this change to determine if we are using
+						IE11 or something more modern */
 					order: 0;
 				}
 			}
