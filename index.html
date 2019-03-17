@@ -1,26 +1,26 @@
 <html>
-<head>
-<style type="text/css">
-/* set a harmless CSS property default value */
-body {
-	order: 0;
-}
-/* test a property that is not supported by IE11 */
-@supports (display: grid) {
-	body {
-		/* change the harmless CSS property to something other than our default value */
-		order: 1;
-	}
-}
-</style>
-</head>
-<body>
-IE11
-</body>
-<script type="text/javascript">
-var bodyEl = document.querySelector('body');
-if (window.getComputedStyle(bodyEl).order === '1') {
-	bodyEl.innerHTML = 'Not IE11';
-}
-</script>	
+	<head>
+		<style type="text/css">
+			/*  @supports is not supported by IE11, it will skip this block after
+				applying the default value for the CSS property we want to observe */
+			body { order: 1; }
+			@supports (display: grid) {
+				body {
+					/*  change a harmless CSS property to something other than
+						the default value. we will later detect this change to
+						determine if we are using IE11 or something more modern */
+					order: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<p>IE11</p>
+	</body>
+	<script type="text/javascript">
+		var bodyEl = document.querySelector('body');
+		if (window.getComputedStyle(bodyEl).order === '0') {
+			bodyEl.innerHTML = '<p>Not IE11</p>';
+		}
+	</script>
 </html>
