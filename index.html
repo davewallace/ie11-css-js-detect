@@ -1,0 +1,26 @@
+<html>
+<head>
+<style type="text/css">
+/* set a harmless CSS property default value */
+body {
+	order: 0;
+}
+/* test a property that is not supported by IE11 */
+@supports (display: grid) {
+	body {
+		/* change the harmless CSS property to something other than our default value */
+		order: 1;
+	}
+}
+</style>
+</head>
+<body>
+IE11
+</body>
+<script type="text/javascript">
+var bodyEl = document.querySelector('body');
+if (window.getComputedStyle(bodyEl).order === '1') {
+	bodyEl.innerHTML = 'Not IE11';
+}
+</script>	
+</html>
