@@ -12,15 +12,16 @@
 					order: 0;
 				}
 			}
+			body { background: pink; }
 		</style>
 	</head>
-	<body>
-		<p>IE11</p>
-	</body>
+	<body></body>
 	<script type="text/javascript">
 		var bodyEl = document.querySelector('body');
 		if (window.getComputedStyle(bodyEl).order === '0') {
-			bodyEl.innerHTML = '<p>Not IE11</p>';
+			bodyEl.innerHTML = '<p>This is not IE11</p>';
+		} else {
+			bodyEl.innerHTML = '<p>This browser does not support the @supports API, it may be &lt;=IE11.</p>';
 		}
 	</script>
 </html>
